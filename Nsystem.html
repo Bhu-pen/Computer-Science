@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: Number System, Conversion and Boolean Logic - Class 11 Computer Science Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">CS Notes</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#chapters">Chapters</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="chapter-content">
+            <h1>Chapter 2: Number System, Conversion and Boolean Logic</h1>
+            
+            <section class="chapter-section">
+                <h2>1's and 2's Complement</h2>
+                <h3>1's Complement</h3>
+                <p>Invert all bits (1 to 0 and 0 to 1). Example: 1's complement of (1011)₂ is (0100)₂.</p>
+        
+                <h3>2's Complement</h3>
+                <p>Add 1 to the 1's complement. Example: 2's complement of (1010)₂ is (0110)₂.</p>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Subtraction Using Complements</h2>
+                <h3>Using 1's Complement</h3>
+                <ul>
+                    <li>Find 1's complement of subtrahend.</li>
+                    <li>Add it to the minuend.</li>
+                    <li>If extra bit exists, remove and add to result.</li>
+                    <li>If no extra bit, find 1's complement of result and add a negative sign.</li>
+                </ul>
+        
+                <h3>Using 2's Complement</h3>
+                <ul>
+                    <li>Find 2's complement of subtrahend.</li>
+                    <li>Add it to the minuend.</li>
+                    <li>If extra bit exists, discard it.</li>
+                    <li>If no extra bit, find 2's complement of result and add a negative sign.</li>
+                </ul>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Boolean Logic</h2>
+                <p>Boolean Algebra is the study of binary variables (0 and 1) and logical operations. Introduced by George
+                    Boole, it is fundamental in logic circuit design.</p>
+        
+                <h3>Boolean Variables</h3>
+                <p>Represent logical values (0 or 1). Examples: A, B, X, Y, Z.</p>
+        
+                <h3>Boolean Function</h3>
+                <p>Expression combining binary variables and operators (AND, OR, NOT). Example: F = XYZ' + XY.</p>
+        
+                <h3>Truth Table</h3>
+                <p>Represents input-output relationships for logical gates.</p>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Boolean Operators</h2>
+                <h3>AND Operator (.)</h3>
+                <p>Output is 1 only when both inputs are 1. Example: 1·1 = 1, 1·0 = 0.</p>
+        
+                <h3>OR Operator (+)</h3>
+                <p>Output is 1 when at least one input is 1. Example: 1+0 = 1, 0+0 = 0.</p>
+        
+                <h3>NOT Operator (')</h3>
+                <p>Inverts input value. Example: 1' = 0, 0' = 1.</p>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Questions and Answers</h2>
+                
+                <h3>1. What is Boolean Algebra?</h3>
+                <p>Boolean Algebra is a branch of algebra that deals with binary variables and logic operations. It is used in
+                    digital logic design and computer science for circuit simplifications and logical expressions.</p>
+                <p>It is based on three basic operations:</p>
+                <ul>
+                    <li><strong>AND (⋅):</strong> Outputs true if both inputs are true.</li>
+                    <li><strong>OR (+):</strong> Outputs true if at least one input is true.</li>
+                    <li><strong>NOT (¬):</strong> Inverts the input value.</li>
+                </ul>
+                <p>Boolean Algebra follows a set of rules and theorems to simplify logical expressions.</p>
+        
+                <h3>2. What are the basic laws of Boolean Algebra?</h3>
+                <p>Boolean Algebra follows several fundamental laws:</p>
+                <ul>
+                    <li><strong>Commutative Law:</strong> A + B = B + A and A ⋅ B = B ⋅ A</li>
+                    <li><strong>Associative Law:</strong> (A + B) + C = A + (B + C) and (A ⋅ B) ⋅ C = A ⋅ (B ⋅ C)</li>
+                    <li><strong>Distributive Law:</strong> A ⋅ (B + C) = (A ⋅ B) + (A ⋅ C)</li>
+                    <li><strong>Identity Law:</strong> A + 0 = A and A ⋅ 1 = A</li>
+                    <li><strong>Complement Law:</strong> A + A' = 1 and A ⋅ A' = 0</li>
+                    <li><strong>Idempotent Law:</strong> A + A = A and A ⋅ A = A</li>
+                </ul>
+                <p>These laws are used to simplify Boolean expressions for logic circuit design.</p>
+        
+                <h3>3. What are De Morgan's Theorems?</h3>
+                <p>De Morgan's Theorems are important rules used to simplify Boolean expressions:</p>
+                <ul>
+                    <li><strong>First Theorem:</strong> ¬(A ⋅ B) = ¬A + ¬B</li>
+                    <li><strong>Second Theorem:</strong> ¬(A + B) = ¬A ⋅ ¬B</li>
+                </ul>
+                <p>These theorems help in converting AND operations to OR operations and vice versa, simplifying logic circuit
+                    implementation.</p>
+        
+                <h3>4. Explain the use of Karnaugh Map (K-Map) in Boolean Algebra.</h3>
+                <p>Karnaugh Map (K-Map) is a visual method used to simplify Boolean expressions. It organizes truth table values
+                    into a grid where adjacent cells differ by a single variable.</p>
+                <p>Steps to simplify using K-Map:</p>
+                <ul>
+                    <li>Draw a K-Map based on the number of variables (2, 3, or 4 variables).</li>
+                    <li>Fill in the K-Map with truth table values.</li>
+                    <li>Group adjacent 1s in powers of 2 (1, 2, 4, 8, etc.).</li>
+                    <li>Write the simplified Boolean expression.</li>
+                </ul>
+                <p>K-Maps reduce complex expressions, making circuit design more efficient.</p>
+        
+                <h3>5. What is a logic gate? Explain different types of logic gates.</h3>
+                <p>A logic gate is an electronic circuit that performs Boolean operations. The basic types of logic gates
+                    include:</p>
+                <ul>
+                    <li><strong>AND Gate:</strong> Outputs 1 if both inputs are 1.</li>
+                    <li><strong>OR Gate:</strong> Outputs 1 if at least one input is 1.</li>
+                    <li><strong>NOT Gate:</strong> Inverts the input (1 becomes 0, and 0 becomes 1).</li>
+                    <li><strong>NAND Gate:</strong> Combination of AND and NOT (inverted AND output).</li>
+                    <li><strong>NOR Gate:</strong> Combination of OR and NOT (inverted OR output).</li>
+                    <li><strong>XOR Gate:</strong> Outputs 1 if inputs are different.</li>
+                    <li><strong>XNOR Gate:</strong> Outputs 1 if inputs are the same.</li>
+                </ul>
+                <p>Logic gates are used to build digital circuits in computing and electronics.</p>
+            </section>
+
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Chapters
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Class 11 Computer Science Notes. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+
+        document.querySelectorAll('.chapter-section').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

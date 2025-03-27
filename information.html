@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 11: Information Security and Cyber Law - Class 11 Computer Science Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">CS Notes</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#chapters">Chapters</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="chapter-content">
+            <h1>Chapter 11: Information Security and Cyber Law</h1>
+            
+            <section class="chapter-section">
+                <h2>Introduction to Information Security</h2>
+                <p>Information security is the practice of protecting information and information systems from unauthorized access, use, disclosure, disruption, modification, or destruction.</p>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Key Concepts</h2>
+                <ul>
+                    <li>Confidentiality: Ensuring information is accessible only to authorized users</li>
+                    <li>Integrity: Maintaining the accuracy and completeness of information</li>
+                    <li>Availability: Ensuring information is available when needed</li>
+                    <li>Authentication: Verifying the identity of users</li>
+                    <li>Authorization: Controlling access to resources</li>
+                </ul>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Cyber Threats</h2>
+                <h3>Types of Threats</h3>
+                <ul>
+                    <li>Malware (Viruses, Worms, Trojans)</li>
+                    <li>Phishing Attacks</li>
+                    <li>Denial of Service (DoS) Attacks</li>
+                    <li>Man-in-the-Middle Attacks</li>
+                    <li>Social Engineering</li>
+                </ul>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Cyber Law</h2>
+                <p>Cyber law refers to the legal issues related to the use of the internet and information technology. It covers various aspects including:</p>
+                <ul>
+                    <li>Digital signatures and electronic contracts</li>
+                    <li>Cybercrime and cyber terrorism</li>
+                    <li>Intellectual property rights</li>
+                    <li>Privacy and data protection</li>
+                    <li>E-commerce regulations</li>
+                </ul>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Security Measures</h2>
+                <h3>Technical Measures</h3>
+                <ul>
+                    <li>Firewalls</li>
+                    <li>Antivirus Software</li>
+                    <li>Encryption</li>
+                    <li>Secure Protocols</li>
+                </ul>
+
+                <h3>Non-Technical Measures</h3>
+                <ul>
+                    <li>Security Policies</li>
+                    <li>User Training</li>
+                    <li>Regular Backups</li>
+                    <li>Access Control</li>
+                </ul>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Questions and Answers</h2>
+                
+                <h3>1. What is Information Security?</h3>
+                <p>Information security is the practice of protecting information and information systems from unauthorized access, use, disclosure, disruption, modification, or destruction. It ensures the confidentiality, integrity, and availability of information.</p>
+
+                <h3>2. What are the main types of cyber threats?</h3>
+                <p>The main types of cyber threats include:</p>
+                <ul>
+                    <li>Malware (viruses, worms, trojans)</li>
+                    <li>Phishing attacks</li>
+                    <li>Denial of Service (DoS) attacks</li>
+                    <li>Man-in-the-Middle attacks</li>
+                    <li>Social engineering</li>
+                </ul>
+
+                <h3>3. What is Cyber Law?</h3>
+                <p>Cyber law refers to the legal issues related to the use of the internet and information technology. It covers various aspects including digital signatures, electronic contracts, cybercrime, intellectual property rights, privacy, and data protection.</p>
+
+                <h3>4. What are the basic security measures?</h3>
+                <p>Basic security measures include:</p>
+                <ul>
+                    <li>Technical measures (firewalls, antivirus, encryption)</li>
+                    <li>Non-technical measures (security policies, user training)</li>
+                    <li>Regular backups</li>
+                    <li>Access control</li>
+                </ul>
+            </section>
+
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Chapters
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Class 11 Computer Science Notes. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+
+        document.querySelectorAll('.chapter-section').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

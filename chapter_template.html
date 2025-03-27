@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Title - Class 11 Computer Science Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">CS Notes</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#chapters">Chapters</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="chapter-content">
+            <h1>Chapter Title</h1>
+            
+            <section class="chapter-section">
+                <h2>Introduction</h2>
+                <p>Introduction text goes here...</p>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Key Concepts</h2>
+                <ul>
+                    <li>Concept 1</li>
+                    <li>Concept 2</li>
+                    <li>Concept 3</li>
+                </ul>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Examples</h2>
+                <div class="example-box">
+                    <pre><code>Example code goes here...</code></pre>
+                </div>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Practice Questions</h2>
+                <ol>
+                    <li>Question 1</li>
+                    <li>Question 2</li>
+                    <li>Question 3</li>
+                </ol>
+            </section>
+
+            <section class="chapter-section">
+                <h2>Summary</h2>
+                <p>Summary text goes here...</p>
+            </section>
+
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Chapters
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Class 11 Computer Science Notes. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        });
+
+        document.querySelectorAll('.chapter-section').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 

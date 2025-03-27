@@ -267,6 +267,131 @@ int main() {
                     <li><strong>Built-in Functions:</strong> Predefined functions like printf(), scanf(), etc.</li>
                     <li><strong>User-defined Functions:</strong> Functions created by the programmer.</li>
                 </ul>
+                <p>Some Additional Examples</p>
+                <list>
+                    <ol>
+               <li> Check prime for the input number</li>
+                <pre>
+                    
+ //Check if the input number is prime or not
+                    
+#include &lt;stdio.h&gt;
+int main(){
+    int n,i,count=0;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++){
+        if(n%i==0){
+            count++;
+           
+        }
+    }
+    if(count==2){
+        printf("The number is prime");
+    }
+    else{
+        printf("The number is not prime");
+    }
+}
+Output
+<img src="photos/prime.png"  style="max-width: 100%; height: auto;">
+                </pre>
+                
+
+                <li>
+                <p>Find the factorial of the input number</p>
+                </li>
+                <pre>
+//Find the factorial of the input number        
+#include &lt;stdio.h&gt;
+int main(){
+    int n,i,fact=1;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++){
+        fact=fact*i;
+    }
+    printf("The factorial of %d is %d",n,fact);
+   
+}
+Output
+<img src="photos/factorial.png"  style="max-width: 100%; height: auto;">
+                </pre>
+                <li>
+                <p>Check if the input numbr is palindrome or not</p>
+                </li>
+                <pre>
+//Check if the input number is palindrome or not    
+#include &lt;stdio.h&gt;
+int main(){
+    int n,rev=0,rem,backup;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    backup=n;
+    while(n!=0){
+        rem=n%10;
+        rev=rev*10+rem;
+        n=n/10;
+    }
+    if(backup==rev){
+        printf("%d is palindrome",backup);
+       }
+    else{
+        printf("%d is not palindrome",backup);
+        
+    }
+    return 0;
+}
+Output
+<img src="photos/palindrome.png"  style="max-width: 100%; height: auto;">
+                </pre>
+                <li>Generate the fibonacci series for n term</li>
+                <pre>
+//Generate the fibonacci series for n term
+#include &lt;stdio.h&gt;
+#include <stdio.h>
+    int main(){
+        int n,i,a=0,b=1,c;
+        printf("Enter the number of terms: ");
+        scanf("%d",&n);
+      
+        for(i=1;i<=n;i++){
+            printf("%d ",a);
+            c=a+b;
+            a=b;
+            b=c;
+        }
+        return 0;
+    }
+    Output
+<img src="photos/fabonacci.png"  style="max-width: 100%; height: auto;">
+</pre>
+<li>Check input number is prefect or not 
+
+</li>
+<pre>
+//Check input number is prefect or not
+#include &lt;stdio.h&gt;
+int main(){
+    int n,i,sum=0;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+  for(i=1;i&lt;=n;i++){
+        if(n%i==0){
+            sum=sum+i;
+        }
+    }
+    if(sum==n){
+        printf("%d is a perfect number",n);
+    }
+    else{
+        printf("%d is not a perfect number",n);
+    }
+    Output
+<img src="photos/perfect.png"  style="max-width: 100%; height: auto;">
+</pre>
+            </ol>
+            </list>
             </section>
 
             <a href="index.html" class="back-button">

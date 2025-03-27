@@ -148,6 +148,213 @@
                     <li><strong>ASCII</strong>: Character encoding using 7 bits for text representation.</li>
                 </ul>
             </section>
+            <section class="chapter-section">
+                <h2>Iterative  Control Structure</h2>
+                Looping is a process of repeating a certain group of statements until a specified condition is satisfied. There are three types of loop in C. They are:
+                <ol>
+                    <li><strong>For loop</strong></li>A for loop in C is a control flow statement that allows code to be repeatedly executed based on a given condition. It is used when the number of iterations is known before the loop starts, or when you need to repeat a block of code a specific number of times.
+                    It's Syntax is :
+                    <br>
+                    <pre>for (initialization; condition; increment/decrement) {
+                        // Code to be executed repeatedly
+                    } </pre>
+                    It's Example is :
+                    <br>
+                    <pre>
+#include &lt;stdio.h&gt;
+
+
+    int main() {
+        // A for loop to print numbers from 1 to 5
+        for (int i = 1; i <= 5; i++) {
+            printf("%d\n", i);  // Print the current value of i
+        }
+    
+        return 0;
+    }
+                    </pre>
+                    <li><strong>While loop</strong></li>
+                    A while loop in C is a control flow statement that repeatedly executes a block of code as long as a given condition evaluates to true. The condition is checked before each iteration, and the loop continues to execute until the condition becomes false.
+                    it is Syntax is :
+                    <pre>
+                        while (condition) {
+                            // Code to be executed repeatedly
+                        }                     </pre>
+                    It's Example is :
+                    <pre>
+#include &lt;stdio.h&gt;
+    int main() {
+        int i = 1;  // Initialize the counter
+            // A while loop to print numbers from 1 to 5
+        while (i <= 5) {
+            printf("%d\n", i);  // Print the current value of i
+            i++;  // Increment the counter
+        }
+    
+        return 0;
+    }
+    </pre>
+                    <li><strong>Do-while loop</strong></li>
+                    A do-while loop in C is a control flow statement that repeatedly executes a block of code at least once, and then continues executing as long as a specified condition evaluates to true. Unlike the while loop, the do-while loop checks the condition after executing the code block, meaning the loop body will always run at least once, even if the condition is false.
+                    It's Syntax is :
+                    <pre>
+                        do {
+                            // Code to be executed repeatedly
+                        } while (condition);
+                        
+                    </pre>
+                    It's Example is :
+                    <pre>
+#include &lt;stdio.h&gt;
+
+
+    int main() {
+        int i = 1;  // Initialize the counter
+    
+        // A do-while loop to print numbers from 1 to 5
+        do {
+            printf("%d\n", i);  // Print the current value of i
+            i++;  // Increment the counter
+        } while (i <= 5);  // Condition checked after the loop body
+    
+        return 0;
+    }
+    
+                    </pre>
+                </ol>
+            </section>
+            <section class="chapter-section">
+                <h2>Array</h2>
+                <p>An array in C is a collection of elements of the same data type stored in contiguous memory locations. It allows you to store multiple values under a single variable name, and you can access each value using an index.</p>
+          It's type are:
+          <ol>
+              <li><strong>One Dimensional Array</strong></li>
+              A one-dimensional array in C is a linear collection of elements of the same data type, stored in contiguous memory locations. It is a list of elements that can be accessed using a single index. The array can be thought of as a row of elements, where each element is identified by its index.
+              it's example is:
+              <pre>
+                #include &lt;stdio.h&gt;
+
+                    int main() {
+                        // Declare and initialize a one-dimensional array of integers
+                        int numbers[5] = {10, 20, 30, 40, 50};
+                    
+                        // Print each element of the array using a loop
+                        for (int i = 0; i < 5; i++) {
+                            printf("%d\n", numbers[i]);
+                        }
+                    
+                        return 0;
+                    }
+                    
+              </pre>
+       <li><strong>Two Dimensional Array</strong></li>
+       In C, a two-dimensional array is essentially an array of arrays. It can be thought of as a table with rows and columns. You can define a two-dimensional array by specifying the type of the elements and the number of rows and columns.
+       it's example is:
+       <pre>
+        #include &lt;stdio.h>
+
+            int main() {
+                // Declare and initialize a two-dimensional array of integers
+                int matrix[3][3] = {
+                    {1, 2, 3},
+                    {4, 5, 6},
+                    {7, 8, 9}
+                };
+            
+                // Print each element of the array using nested loops
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        printf("%d ", matrix[i][j]);
+                    }
+                    printf("\n");
+                }
+            
+                return 0;
+            }
+
+       </pre>
+       <li><strong>Multi Dimensional Array</strong></li>
+       In C, a multi-dimensional array is an array that has more than two dimensions. The most common multi-dimensional arrays are two-dimensional arrays (which can be thought of as matrices), but you can define arrays with three or more dimensions as well.
+         it's example is:
+         <pre>
+            #include &lt;stdio.h>
+
+                int main() {
+                    // Declare and initialize a three-dimensional array of integers
+                    int cube[3][3][3] = {
+                        {
+                            {1, 2, 3},
+                            {4, 5, 6},
+                            {7, 8, 9}
+                        },
+                        {
+                            {10, 11, 12},
+                            {13, 14, 15},
+                            {16, 17, 18}
+                        },
+                        {
+                            {19, 20, 21},
+                            {22, 23, 24},
+                            {25, 26, 27}
+                        }
+                    };
+                
+                    // Print each element of the array using nested loops
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            for (int k = 0; k < 3; k++) {
+                                printf("%d ", cube[i][j][k]);
+                            }
+                            printf("\n");
+                        }
+                        printf("\n");
+                    }
+                
+                    return 0;
+                }
+         </pre>
+            </ol>
+            <h2>
+String array in C
+            </h2>
+            In C, a multi-dimensional array is an array that has more than two dimensions. The most common multi-dimensional arrays are two-dimensional arrays (which can be thought of as matrices), but you can define arrays with three or more dimensions as well.
+            it's syntax is:
+            <pre>
+                char strings[3][20]; // An array of 3 strings, each can hold up to 19 characters + null terminator
+
+            </pre>
+            it's example is:
+            <pre>
+                #include &lt;stdio.h&gt;
+
+                    int main() {
+                        // Method 1: Array of character arrays
+                        char strings1[3][20] = {
+                            "Hello",
+                            "World",
+                            "C Programming"
+                        };
+                    
+                        printf("Using array of character arrays:\n");
+                        for (int i = 0; i < 3; i++) {
+                            printf("%s\n", strings1[i]);
+                        }
+                    
+                        // Method 2: Array of pointers to strings
+                        char *strings2[3];
+                        strings2[0] = "Hello";
+                        strings2[1] = "World";
+                        strings2[2] = "C Programming";
+                    
+                        printf("\nUsing array of pointers to strings:\n");
+                        for (int i = 0; i < 3; i++) {
+                            printf("%s\n", strings2[i]);
+                        }
+                    
+                        return 0;
+                    }
+            </pre>
+
 
             <section class="chapter-section">
                 <h2>Questions and Answers</h2>
@@ -294,7 +501,7 @@ int main(){
     }
 }
 Output
-<img src="https://bhu-pen.github.io/Computer-Science/photos/prime.png"  style="max-width: 100%; height: auto;">
+<img src="photos/prime.png"  style="max-width: 100%; height: auto;">
                 </pre>
                 
 
@@ -315,7 +522,7 @@ int main(){
    
 }
 Output
-<img src="https://bhu-pen.github.io/Computer-Science/photos/fabonacci.png"  style="max-width: 100%; height: auto;">
+<img src="photos/factorial.png"  style="max-width: 100%; height: auto;">
                 </pre>
                 <li>
                 <p>Check if the input numbr is palindrome or not</p>
@@ -343,7 +550,7 @@ int main(){
     return 0;
 }
 Output
-<img src="https://bhu-pen.github.io/Computer-Science/photos/palindrome.png"  style="max-width: 100%; height: auto;">
+<img src="photos/palindrome.png"  style="max-width: 100%; height: auto;">
                 </pre>
                 <li>Generate the fibonacci series for n term</li>
                 <pre>
@@ -364,7 +571,7 @@ Output
         return 0;
     }
     Output
-<img src="https://bhu-pen.github.io/Computer-Science/photos/fabonacci.png"  style="max-width: 100%; height: auto;">
+<img src="photos/fabonacci.png"  style="max-width: 100%; height: auto;">
 </pre>
 <li>Check input number is prefect or not 
 
@@ -388,7 +595,7 @@ int main(){
         printf("%d is not a perfect number",n);
     }
     Output
-<img src="https://bhu-pen.github.io/Computer-Science/photos/perfect.png"  style="max-width: 100%; height: auto;">
+<img src="photos/perfect.png"  style="max-width: 100%; height: auto;">
 </pre>
             </ol>
             </list>

@@ -201,11 +201,22 @@ Step 5: Stop</pre>
                     <li><strong>String:</strong> Holds a sequence of characters (e.g., "Hello").</li>
                     <li><strong>Boolean (bool):</strong> Holds True or False values.</li>
                 </ul>
-                <p>Example in Python:</p>
-                <pre>age = 20           # Integer
-price = 10.99      # Float
-name = "Alice"     # String
-is_student = True  # Boolean</pre>
+                <p>Example in C:</p>
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 20;           // Integer
+    float price = 10.99;    // Float
+    char name[] = "Alice";  // String
+    int is_student = 1;     // Boolean (1 for True, 0 for False)
+
+    printf("Age: %d\n", age);
+    printf("Price: %.2f\n", price);
+    printf("Name: %s\n", name);
+    printf("Is Student: %d\n", is_student);
+
+    return 0;
+}</pre>
 
                 <h3>5. What are Conditional Statements?</h3>
                 <p>Conditional statements allow a program to make decisions based on conditions. The main types are:</p>
@@ -215,12 +226,20 @@ is_student = True  # Boolean</pre>
                     <li><strong>Nested If:</strong> If statements inside other if statements.</li>
                     <li><strong>Switch Case (in some languages):</strong> Used as an alternative to multiple if-else statements.</li>
                 </ul>
-                <p>Example in Python:</p>
-                <pre>age = 18
-if age >= 18:
-    print("You are eligible to vote.")
-else:
-    print("You are not eligible to vote.")</pre>
+                <p>Example in C:</p>
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 18;
+
+    if (age >= 18) {
+        printf("You are eligible to vote.\n");
+    } else {
+        printf("You are not eligible to vote.\n");
+    }
+
+    return 0;
+}</pre>
 
                 <h3>6. What are Loops in Programming?</h3>
                 <p>Loops are used to execute a block of code multiple times. The main types of loops are:</p>
@@ -229,16 +248,23 @@ else:
                     <li><strong>While Loop:</strong> Repeats while a condition is true.</li>
                     <li><strong>Do-While Loop (in some languages):</strong> Executes at least once before checking the condition.</li>
                 </ul>
-                <p>Example in Python (For Loop):</p>
-                <pre>for i in range(1, 6):
-    print(i)</pre>
+                <p>Example in C (For Loop):</p>
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        printf("%d\n", i);
+    }
+
+    return 0;
+}</pre>
                 <p>This prints numbers from 1 to 5.</p>
 
                 <h3>7. What are Functions in Programming?</h3>
                 <p>A function is a reusable block of code that performs a specific task. Functions help in modular programming and avoid repetition.</p>
                 <p>Types of Functions:</p>
                 <ul>
-                    <li><strong>Built-in Functions:</strong> Predefined functions like print(), len(), etc.</li>
+                    <li><strong>Built-in Functions:</strong> Predefined functions like printf(), scanf(), etc.</li>
                     <li><strong>User-defined Functions:</strong> Functions created by the programmer.</li>
                 </ul>
             </section>

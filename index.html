@@ -364,85 +364,100 @@ document.addEventListener('DOMContentLoaded', function() {
     "parts": [{ 
     text: `You are an expert study assistant AI for the Study Focus application, designed to help students learn and maintain focus while studying. 
     
-    ${message}`
-    
-   
-     }]
-                    }]
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error(`API request failed with status ${response.status}`);
-            }
-            
-            const data = await response.json();
-            let responseText = "Sorry, I couldn't process that request.";
-            
-            if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
-                responseText = data.candidates[0].content.parts[0].text;
-                // Format the response to ensure bullet points
-                if (!responseText.includes('•')) {
-                    // Split the response into sentences and add bullet points
-                    const sentences = responseText.split(/[.!?]+/).filter(s => s.trim());
-                    responseText = sentences.map(s => `• ${s.trim()}`).join('\n');
-                }
-            }
-            
-            return responseText;
-        } catch (error) {
-            console.error('Error:', error);
-            return "I apologize, but I'm having trouble connecting to the AI service right now. Please try again later.";
-        }
+    ${message}
+  `
+    }]
+    }]
+    })
+    });
+    const data = await response.json();
+    let responseText = data?.candidates[0].content.parts[0].text;
+    // Format the response to ensure bullet points
+    if (!responseText.includes('•')) {
+    // Split the response into sentences and add bullet points
+    const sentences = responseText.split(/[.!?]+/).filter(s => s.trim());
+    responseText = sentences.map(s => `• ${s.trim()}`).join('\n');
+    }
+    return responseText;
+    } catch (error) {
+    console.error('Error:', error);
+    return "I apologize, but I'm having trouble connecting to the AI service right now. Please try again later.";
+    }
     }
     
     async function sendMessage() {
-        const message = chatbotInput.value.trim();
-        if (message) {
-            // Add user message to chat
-            addMessage(message, 'user');
-            chatbotInput.value = '';
-            
-            // Show loading message
-            const loadingDiv = document.createElement('div');
-            loadingDiv.classList.add('message', 'bot-message');
-            loadingDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Thinking...';
-            chatbotMessages.appendChild(loadingDiv);
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            
-            // Get AI response
-            const response = await generateApiResponse(message);
-            // Remove loading message
-            loadingDiv.remove();
-            // Add AI response
-            addMessage(response, 'bot');
-        }
+    const message = chatbotInput.value.trim();
+    if (message) {
+    // Add user message to chat
+    addMessage(message, 'user');
+    chatbotInput.value = '';
+    
+    // Show loading message
+    const loadingDiv = document.createElement('div');
+    loadingDiv.classList.add('message', 'bot-message');
+    loadingDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Thinking...';
+    chatbotMessages.appendChild(loadingDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    
+    // Get AI response
+    const response = await generateApiResponse(message);
+    // Remove loading message
+    loadingDiv.remove();
+    // Add AI response
+    addMessage(response, 'bot');
+    }
     }
     
     chatbotSendBtn.addEventListener('click', sendMessage);
     chatbotInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
+    if (e.key === 'Enter') {
+    sendMessage();
+    }
     });
     
     function addMessage(text, sender) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', `${sender}-message`);
-        // Add avatar for bot messages
-        if (sender === 'bot') {
-            const avatarDiv = document.createElement('div');
-            avatarDiv.classList.add('message-avatar');
-            avatarDiv.innerHTML = '<i class="fas fa-robot"></i>';
-            messageDiv.appendChild(avatarDiv);
-        }
-        const textDiv = document.createElement('div');
-        textDiv.classList.add('message-text');
-        textDiv.textContent = text;
-        messageDiv.appendChild(textDiv);
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', `${sender}-message`);
+    // Add avatar for bot messages
+    if (sender === 'bot') {
+    const avatarDiv = document.createElement('div');
+    avatarDiv.classList.add('message-avatar');
+    avatarDiv.innerHTML = '<i class="fas fa-robot"></i>';
+    messageDiv.appendChild(avatarDiv);
     }
-});
+    const textDiv = document.createElement('div');
+    textDiv.classList.add('message-text');
+    textDiv.textContent = text;
+    messageDiv.appendChild(textDiv);
+    chatbotMessages.appendChild(messageDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    
+    // Add welcome message when chatbot is first opened
+    chatbotTrigger.addEventListener('click', () => {
+    if (!chatbotMessages.children.length) {
+    addMessage('Hello! I\'m your study assistant. How can I help you today?', 'bot');
+    }
+    });
+    });
+    
+    
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

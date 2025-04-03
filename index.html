@@ -13,10 +13,11 @@
     <header>
         <nav>
             <a href="#" class="logo">CS Notes</a>
+            <a id="chatbot-trigger">Chatbot</a><
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#chapters">Chapters</a></li>
-                <li><a href="#about">About</a></li>
+                <li></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -25,7 +26,7 @@
     <main>
         <section class="hero">
             <h1>Class 11 Computer Science Notes</h1>
-            <p>Comprehensive study materials for NEB Class 11 Computer Science</p>
+            <p>Comprehensive study materials for CBSE Class 11 Computer Science</p>
         </section>
 
         <section class="chapter-grid">
@@ -79,7 +80,7 @@
                     <i class="fas fa-globe"></i>
                 </div>
                 <h2>Chapter 6: Web technology - I</h2>
-                <p>Understanding Html and CSS</p>
+                <p>Understanding control structures in Python.</p>
                 <a href="Wtechnology.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
 
@@ -97,16 +98,42 @@
                     <i class="fas fa-shield-alt"></i>
                 </div>
                 <h2>Chapter 8: Information Security and cyber Law</h2>
-                
+                <p>Working with strings in Python.</p>
                 <a href="information.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
 
+            <div class="chapter-card" data-aos="fade-up" data-aos-delay="800">
+                <div class="card-icon">
+                    <i class="fas fa-list"></i>
+                </div>
+                <h2>Chapter 9: Lists</h2>
+                <p>Understanding lists and their operations.</p>
+                <a href="chapter9.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="chapter-card" data-aos="fade-up" data-aos-delay="900">
+                <div class="card-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h2>Chapter 10: Tuples and Dictionaries</h2>
+                <p>Working with tuples and dictionaries in Python.</p>
+                <a href="chapter10.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="chapter-card" data-aos="fade-up" data-aos-delay="1000">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h2>Chapter 11: Societal Impact</h2>
+                <p>Understanding the impact of technology on society.</p>
+                <a href="chapter11.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p>© 2025 Bhupendra Lekhak . All rights reserved.</p>
+            <p>© 2024 Class 11 Computer Science Notes. All rights reserved.</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -115,9 +142,316 @@
             </div>
         </div>
     </footer>
+    <div id="chatbot-dialog" class="chatbot-dialog">
+        <div class="chatbot-header">
+        <div class="chatbot-title">
+        <i class="fas fa-robot"></i>
+        Study Assistant
+        </div>
+        <div class="chatbot-controls">
+        <button id="minimize-chat" class="control-btn">
+        <i class="fas fa-minus"></i>
+        </button>
+        <button id="close-chat" class="control-btn">
+        <i class="fas fa-times"></i>
+        </button>
+        </div>
+        </div>
+        <div class="chatbot-messages">
+        </div>
+        <div class="chatbot-input-container">
+        <input type="text" class="chatbot-input" placeholder="Ask Something....">
+        <button class="chatbot-send-btn">
+        <i class="fas fa-paper-plane"></i>
+        </button>
+        </div>
+        </div>
+        
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        
+
+document.addEventListener('DOMContentLoaded', function() {
+    const chatbotDialog = document.getElementById('chatbot-dialog');
+    const chatbotTrigger = document.getElementById('chatbot-trigger');
+    const closeChat = document.getElementById('close-chat');
+    const minimizeChat = document.getElementById('minimize-chat');
+    const chatbotInput = document.querySelector('.chatbot-input');
+    const chatbotSendBtn = document.querySelector('.chatbot-send-btn');
+    const chatbotMessages = document.querySelector('.chatbot-messages');
+    
+    // Dragging functionality
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+    
+    const chatbotHeader = document.querySelector('.chatbot-header');
+    
+    chatbotHeader.addEventListener('mousedown', dragStart);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', dragEnd);
+    
+    function dragStart(e) {
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
+    
+    if (e.target === chatbotHeader || e.target.parentNode === chatbotHeader) {
+    isDragging = true;
+    }
+    }
+    
+    function drag(e) {
+    if (isDragging) {
+    e.preventDefault();
+    currentX = e.clientX - initialX;
+    currentY = e.clientY - initialY;
+    
+    xOffset = currentX;
+    yOffset = currentY;
+    
+    setTranslate(currentX, currentY, chatbotDialog);
+    }
+    }
+    
+    function dragEnd() {
+    initialX = currentX;
+    initialY = currentY;
+    isDragging = false;
+    }
+    
+    function setTranslate(xPos, yPos, el) {
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+    
+    // Chatbot visibility controls
+    chatbotTrigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    chatbotDialog.classList.add('active');
+    addResizeHandles();
+    });
+    
+    closeChat.addEventListener('click', () => {
+    chatbotDialog.classList.remove('active');
+    removeResizeHandles();
+    });
+    
+    minimizeChat.addEventListener('click', () => {
+    chatbotDialog.classList.remove('active');
+    removeResizeHandles();
+    });
+    
+    function addResizeHandles() {
+    const handles = [
+    { class: 'nw', position: 'top-left' },
+    { class: 'n', position: 'top' },
+    { class: 'ne', position: 'top-right' },
+    { class: 'e', position: 'right' },
+    { class: 'se', position: 'bottom-right' },
+    { class: 's', position: 'bottom' },
+    { class: 'sw', position: 'bottom-left' },
+    { class: 'w', position: 'left' }
+    ];
+    
+    handles.forEach(handle => {
+    const div = document.createElement('div');
+    div.className = `resize-handle ${handle.class}`;
+    chatbotDialog.appendChild(div);
+    });
+    }
+    
+    function removeResizeHandles() {
+    const handles = document.querySelectorAll('.resize-handle');
+    handles.forEach(handle => handle.remove());
+    }
+    
+    // Resize functionality
+    let isResizing = false;
+    let currentHandle = null;
+    let startX, startY, startWidth, startHeight;
+    
+    document.addEventListener('mousedown', (e) => {
+    if (e.target.classList.contains('resize-handle')) {
+    isResizing = true;
+    currentHandle = e.target;
+    startX = e.clientX;
+    startY = e.clientY;
+    startWidth = chatbotDialog.offsetWidth;
+    startHeight = chatbotDialog.offsetHeight;
+    }
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+    if (isResizing && currentHandle) {
+    const deltaX = e.clientX - startX;
+    const deltaY = e.clientY - startY;
+    
+    const handleClass = currentHandle.className.split(' ')[1];
+    switch(handleClass) {
+    case 'se':
+    chatbotDialog.style.width = `${startWidth + deltaX}px`;
+    chatbotDialog.style.height = `${startHeight + deltaY}px`;
+    break;
+    case 'sw':
+    chatbotDialog.style.width = `${startWidth - deltaX}px`;
+    chatbotDialog.style.height = `${startHeight + deltaY}px`;
+    chatbotDialog.style.left = `${startX + deltaX}px`;
+    break;
+    case 'ne':
+    chatbotDialog.style.width = `${startWidth + deltaX}px`;
+    chatbotDialog.style.height = `${startHeight - deltaY}px`;
+    chatbotDialog.style.top = `${startY + deltaY}px`;
+    break;
+    case 'nw':
+    chatbotDialog.style.width = `${startWidth - deltaX}px`;
+    chatbotDialog.style.height = `${startHeight - deltaY}px`;
+    chatbotDialog.style.left = `${startX + deltaX}px`;
+    chatbotDialog.style.top = `${startY + deltaY}px`;
+    break;
+    case 'n':
+    chatbotDialog.style.height = `${startHeight - deltaY}px`;
+    chatbotDialog.style.top = `${startY + deltaY}px`;
+    break;
+    case 's':
+    chatbotDialog.style.height = `${startHeight + deltaY}px`;
+    break;
+    case 'e':
+    chatbotDialog.style.width = `${startWidth + deltaX}px`;
+    break;
+    case 'w':
+    chatbotDialog.style.width = `${startWidth - deltaX}px`;
+    chatbotDialog.style.left = `${startX + deltaX}px`;
+    break;
+    }
+    }
+    });
+    
+    document.addEventListener('mouseup', () => {
+    isResizing = false;
+    currentHandle = null;
+    });
+    
+    // Handle message sending
+    const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAd09_-8GWw-auFFTya4uvp-sXto8k8rqk';
+    
+    async function generateApiResponse(message) {
+    // Check for various ways of asking about creation/developer
+    const creationKeywords = [
+    "who created you",
+    "who made you",
+    "made you",
+    "built you",
+    "designed you",
+    "programmed you"
+    ];
+    
+    const messageLower = message.toLowerCase();
+    if (creationKeywords.some(keyword => messageLower.includes(keyword))) {
+    return "I am developed by Bhupendra Lekhak";
+    }
+    
+    try {
+    const response = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+    contents: [{
+    "role": "user",
+    "parts": [{ 
+    text: `You are an expert study assistant AI for the Study Focus application, designed to help students learn and maintain focus while studying. Your responses should be:
+    
+    1. Educational and study-focused
+    2. Clear and concise 
+    3. Formatted in bullet points
+    
+    Please provide a helpful response to this question:
+    
+    ${message}
+    
+    Remember to:
+    • Keep responses under 100 words
+    • Use bullet points
+    • Be educational and engaging only provide necessary information don't provide not neceesary things`
+    }]
+    }]
+    })
+    });
+    const data = await response.json();
+    let responseText = data?.candidates[0].content.parts[0].text;
+    // Format the response to ensure bullet points
+    if (!responseText.includes('•')) {
+    // Split the response into sentences and add bullet points
+    const sentences = responseText.split(/[.!?]+/).filter(s => s.trim());
+    responseText = sentences.map(s => `• ${s.trim()}`).join('\n');
+    }
+    return responseText;
+    } catch (error) {
+    console.error('Error:', error);
+    return "I apologize, but I'm having trouble connecting to the AI service right now. Please try again later.";
+    }
+    }
+    
+    async function sendMessage() {
+    const message = chatbotInput.value.trim();
+    if (message) {
+    // Add user message to chat
+    addMessage(message, 'user');
+    chatbotInput.value = '';
+    
+    // Show loading message
+    const loadingDiv = document.createElement('div');
+    loadingDiv.classList.add('message', 'bot-message');
+    loadingDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Thinking...';
+    chatbotMessages.appendChild(loadingDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    
+    // Get AI response
+    const response = await generateApiResponse(message);
+    // Remove loading message
+    loadingDiv.remove();
+    // Add AI response
+    addMessage(response, 'bot');
+    }
+    }
+    
+    chatbotSendBtn.addEventListener('click', sendMessage);
+    chatbotInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+    sendMessage();
+    }
+    });
+    
+    function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', `${sender}-message`);
+    // Add avatar for bot messages
+    if (sender === 'bot') {
+    const avatarDiv = document.createElement('div');
+    avatarDiv.classList.add('message-avatar');
+    avatarDiv.innerHTML = '<i class="fas fa-robot"></i>';
+    messageDiv.appendChild(avatarDiv);
+    }
+    const textDiv = document.createElement('div');
+    textDiv.classList.add('message-text');
+    textDiv.textContent = text;
+    messageDiv.appendChild(textDiv);
+    chatbotMessages.appendChild(messageDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    
+    // Add welcome message when chatbot is first opened
+    chatbotTrigger.addEventListener('click', () => {
+    if (!chatbotMessages.children.length) {
+    addMessage('Hello! I\'m your study assistant. How can I help you today?', 'bot');
+    }
+    });
+    });
+    
+    
         // Initialize AOS
         AOS.init({
             duration: 800,
